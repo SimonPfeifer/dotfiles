@@ -1,0 +1,11 @@
+[general]
+import = ["~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"]
+
+[font]
+size = 8.0
+
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
+
