@@ -133,11 +133,11 @@ return {
           nowait = true,
         },
         mappings = {
-          ['<space>'] = {
-            'toggle_node',
-            nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-          },
-          ['<2-LeftMouse>'] = 'open',
+          -- ['<space>'] = {
+          --   'toggle_node',
+          --   nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+          -- },
+          -- ['<2-LeftMouse>'] = 'open',
           ['<cr>'] = 'open',
           ['<esc>'] = 'cancel', -- close preview or floating neo-tree window
           ['P'] = { 'toggle_preview', config = { use_float = true } },
@@ -146,12 +146,12 @@ return {
           ['s'] = 'open_vsplit',
           -- ["S"] = "split_with_window_picker",
           -- ["s"] = "vsplit_with_window_picker",
-          ['t'] = 'open_tabnew',
+          -- ['t'] = 'open_tabnew',
           -- ["<cr>"] = "open_drop",
           -- ["t"] = "open_tab_drop",
-          ['w'] = 'open_with_window_picker',
-          --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
-          ['C'] = 'close_node',
+          -- ['w'] = 'open_with_window_picker',
+          -- ["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
+          -- ['C'] = 'close_node',
           -- ['C'] = 'close_all_subnodes',
           ['z'] = 'close_all_nodes',
           --["Z"] = "expand_all_nodes",

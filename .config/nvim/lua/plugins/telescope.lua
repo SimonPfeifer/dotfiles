@@ -7,6 +7,13 @@ return {
         "sharkdp/fd",
         {"nvim-telescope/telescope-fzf-native.nvim", build = "make"}
     },
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    },
     config = function()
         require("telescope").setup{
             mappings = {

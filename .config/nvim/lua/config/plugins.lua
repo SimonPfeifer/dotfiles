@@ -8,10 +8,19 @@ return {
 	-- Searching
 	require "plugins.telescope",
 
-	-- File parsin
-	require "plugins.treesitter",
+	-- File parsing
+    require "plugins.lsp",
+    require "plugins.cmp",
+    require "plugins.trouble",
 
-	-- Color scheme
+    -- Highlighting
+	require "plugins.treesitter",
+    require "plugins.todo",
+
+	-- Appearance
 	require "plugins.colorschemes.gruvbox-material",
+    require "plugins.lualine",
+    require "plugins.bufferline",
+    require "plugins.toggleterm"
 }
 
