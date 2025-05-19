@@ -5,12 +5,13 @@ return {
 	require "plugins.alpha",
 	require "plugins.neotree",
 
-	-- Searching
+	-- Editor
 	require "plugins.telescope",
+    require "plugins.auto-session",
 
 	-- File parsing
-    require "plugins.lsp",
     require "plugins.cmp",
+    require "plugins.lsp",
     require "plugins.trouble",
 
     -- Highlighting

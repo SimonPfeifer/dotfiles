@@ -9,11 +9,14 @@ if file_exists(vimrc_path) == true then
     vim.cmd("source " .. vimrc_path)
 end
 
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Set custom Neovim settings
 -- These will override the Vim settings above
-
 vim.opt.termguicolors = true -- Set termguicolors to enable highlight groups (default: false)
-
 vim.g.have_nerd_font = true
 
 --  See `:help wincmd` for a list of all window commands
@@ -36,6 +39,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Buffers
 vim.keymap.set('n', '<Tab>', ':bn<CR>', { desc = 'Move to next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bp<CR>', { desc = 'Move to previous buffer' })
+vim.keymap.set('n', '<leader>q', ':bp<bar>sp<bar>bn<bar>bd<CR>', { desc = 'Delete current buffer' })
+vim.keymap.set('n', '<leader>wq', ':w<bar>bp<bar>sp<bar>bn<bar>bd<CR>', { desc = 'Delete current buffer' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Search
+vim.keymap.set('n', '<Esc>', '<Esc>:noh<CR>', { desc = 'Clear highlighted search' })
+  
+-- Sessions
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

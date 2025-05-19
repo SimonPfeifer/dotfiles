@@ -1,3 +1,18 @@
+local select_one_or_multi = function(prompt_bufnr)
+    local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
+    local multi = picker:get_multi_selection()
+    if not vim.tbl_isempty(multi) then
+        require('telescope.actions').close(prompt_bufnr)
+        for _, j in pairs(multi) do
+            if j.path ~= nil then
+                vim.cmd(string.format('%s %s', 'edit', j.path))
+            end
+        end
+    else
+        require('telescope.actions').select_default(prompt_bufnr)
+    end
+end
+
 return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
@@ -16,6 +31,17 @@ return {
     },
     config = function()
         require("telescope").setup{
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<CR>"] = select_one_or_multi,
+                    },
+                    n = {
+                        ["<CR>"] = select_one_or_multi,
+                    },
+                },
+            },
+
             mappings = {
                 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Telescope find files' }),
                 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Telescope live grep' }),
@@ -24,6 +50,16 @@ return {
             },
 
             pickers = {
+                find_files = {
+                    hidden = true,
+                    no_ignore = true,
+                },
+                live_grep = {
+                    additional_args = {"--hidden", "--no-ignore"},
+                },
+                grep_string = {
+                    additional_args = {"--hidden", "--no-ignore"},
+                },
             },
 
             extensions = {

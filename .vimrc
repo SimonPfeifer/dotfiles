@@ -22,7 +22,7 @@ set smartindent " Make indenting smarter again (default: false)
 " Searching
 set ignorecase " Case-insensitive searching UNLESS \C or capital in search (default: false)
 set smartcase " Smart case (default: false)
-set nohlsearch " Set highlight on search (default: true)
+set hlsearch " Set highlight on search (default: true)
 
 " Navigation
 set scrolloff=4 " Minimal number of screen lines to keep above and below the cursor (default: 0)
